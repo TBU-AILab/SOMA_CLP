@@ -1,28 +1,27 @@
 # SOMA_CLP
+Implementation of the SOMA-CLP in C++
 
-Implementation of the ESP-SOMA in Python
+Full paper: TBA
 
-Full paper: ESP-SOMA Solving CEC 2019 100-Digit Challenge
+## Use in Linux
+### Compilation
+cmake CMakeLists.txt
+make
 
-Full paper: ESP-SOMA solving Constrained Technological Design Optimization Problem
+### Run
+./m_SOMA_CLP_CEC21 1 10 100 200000 30 0
+#### CLI parameters:
+* Test function ID <1, 10>
+* Dimension size {10, 20}
+* NP
+* maxFES
+* Number of repetitions
+* Binary parameter for CEC21 test functions <0, 7>
 
-Usage
-Sample use can also be seen at the end of the file main.py.
+### Output files
+Based on the example above:
 
-dim = 10 #dimension size
-NP = 10 #population size
-maxFEs = 10000 * dim #maximum number of objective function evaluations
-gap = 7
-adaptivePRT = 1
-pathLength = 3.0
-step = 0.11
+    info_SOMA_CLP_CEC21_d10_t1_c0.txt
+    SOMA_CLP_CEC21_d10_t1_c0/
 
-sphere = Sphere(dim) #defined test function
-soma = ESP_SOMA(dim, maxFEs, sphere, NP, gap, pathLength, step, adaptivePRT)
-resp = soma.run()
-print(resp)
-Output resp then includes optimized values features and value of objective function ofv. Also, the id of particle is included.
-
-File descriptions
-main.py
-The main file contains the main class ESP_SOMA and one sample test function class Sphere.
+Info file contains basic statistics, and the directory contains the results of each run.
